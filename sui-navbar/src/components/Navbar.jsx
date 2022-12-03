@@ -1,14 +1,13 @@
+
+//Navbar.jsx
 import { useState} from 'react'
 import { useMediaQuery } from 'react-responsive'
 import { Menu } from 'semantic-ui-react'
 import NavbarMb from "./NavbarMb"
 import NavbarLg from "./NavbarLg"
-
 export default function Navbar() {
   const [activeItem,setactiveItem]=useState("home")
-
   const handleItemClick = (e, { name }) => setactiveItem(name)
-
   const renderLinks=()=>{
    return <><Menu.Item
     name='logo'
@@ -52,14 +51,10 @@ export default function Navbar() {
   const lg = useMediaQuery({ query: "(min-width:992px)" })
   const xl = useMediaQuery({ query: "(min-width:1200px)" })
   const xxl = useMediaQuery({ query: "(min-width:1400px)" })
-
   const size = {none,sm,md,lg,xl,xxl}
-
   return (
     <div>
         {size.sm ? <NavbarLg renderLinks={renderLinks}/> : <NavbarMb renderLinks={renderLinks}/> }
     </div>
   )
 }
-
-

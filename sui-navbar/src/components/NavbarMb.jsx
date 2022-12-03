@@ -1,6 +1,7 @@
+
+//Navbar.Mb
 import { useState } from 'react'
 import { Menu, Sidebar } from 'semantic-ui-react'
-
 function Overlay() {
   return (
     <div style={{
@@ -11,35 +12,26 @@ function Overlay() {
     }} />
   )
 }
-
 function HamIcon() {
   return (<i className="big bars icon inverted" />)
 }
-
 function CloseIcon() {
   return (<i className="big close red icon" />)
 }
-
 function NavbarMb({renderLinks}) {
   const [visible, setVisible] = useState(false)
   const [icon, setIcon] = useState(HamIcon)
-  const [activeItem, setactiveItem] = useState("home")
-  const handleItemClick = (e, { name }) => setactiveItem(name)
-
   const hideSidebar = () => {
     setIcon(HamIcon)
     setVisible(false)
   }
-
   const showSidebar = () => {
     setIcon(CloseIcon)
     setVisible(true)
   }
-
   const toggleSidebar = () => {
     visible ? hideSidebar() : showSidebar()
   }
-
   return (
     <>
       {visible && <Overlay />}
@@ -70,6 +62,5 @@ function NavbarMb({renderLinks}) {
     </>
   )
 }
-
 
 export default NavbarMb
